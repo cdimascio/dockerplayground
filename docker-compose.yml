@@ -1,0 +1,16 @@
+gateway: 
+  image: registry.ng.bluemix.net/dimascio/openresty
+  ports:
+    - "169.46.147.246:80:80"
+  links:
+    - app
+app: 
+  image: registry.ng.bluemix.net/dimascio/node-test-2
+  expose: 
+    - "8081"
+  links:
+    - web
+web:
+  image: registry.ng.bluemix.net/dimascio/node-test-1
+  expose:
+    - "8080"
